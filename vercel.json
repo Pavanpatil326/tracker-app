@@ -9,8 +9,8 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "Server/Server.js" 
+      "dest": "Server/Server.js"
     }
   ],
-  "buildCommand": "npm install --prefix Server" 
+  "buildCommand": "npm install --prefix Server  && npm run postinstall --prefix Server" 
 }
