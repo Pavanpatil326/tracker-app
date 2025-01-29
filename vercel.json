@@ -17,13 +17,8 @@
       "dest": "backend/Server.js"
     }
   ],
-  "build": {
-    "env": {
-      "NODE_ENV": "production"
-    },
-    "commands": {
-      "install": "npm install --prefix Server && npm install --prefix client",
-      "build": "npm run build --prefix client"
-    }
-  }
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "buildCommand": "npm install --prefix Server && npm install --prefix client && npm run build --prefix client"
 }
