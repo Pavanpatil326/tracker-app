@@ -1,24 +1,16 @@
 {
-  "version": 3,
+  "version": 2,
   "builds": [
     {
-      "src": "backend/Server.js",
+      "src": "backend/Server.js", 
       "use": "@vercel/node"
     }
   ],
-  "functions": {
-    "api/*.js": {
-      "runtime": "@vercel/node"
-    }
-  },
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "backend/Server.js"
+      "dest": "backend/Server.js" 
     }
   ],
-  "env": {
-    "NODE_ENV": "production"
-  },
-  "buildCommand": "npm install --prefix Server && npm install --prefix client && npm run build --prefix client"
+  "buildCommand": "npm install --prefix Server && npm install --prefix client && npm run build --prefix client" 
 }
