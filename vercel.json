@@ -12,5 +12,5 @@
       "dest": "Server/Server.js" 
     }
   ],
-  "buildCommand": "npm install --prefix Server && npm install --prefix client && npm run build --prefix client" 
+  "buildCommand": "npm install --prefix Server" 
 }
