@@ -3,18 +3,17 @@ const express = require('express');
 const dotenv = require('dotenv');
 const colors = require('colors');
 const morgan = require('morgan'); 
-const connectDB = require('../db')
 
 // Load environment variables
-dotenv.config({ path: '../config.env' });
+const connectDB = require('./db.js')
+dotenv.config({path: './config.env'});
 
 // connect To Database
 
 connectDB();
 
 // Import transactions routes
-const transactions = require('../routes/transactions'); // Corrected path if routes is in the same folder as server.js
-const { default: mongoose } = require('mongoose');
+const transactions = require('./routes/transactions.js'); // Corrected path if routes is in the same folder as server.js
 
 const app = express();
 
