@@ -12,5 +12,5 @@
       "dest": "Server/Server.js"
     }
   ],
-  "buildCommand": "npm install --prefix Server  && npm run postinstall --prefix Server" 
+  "buildCommand": "npm install --prefix Server" 
 }
