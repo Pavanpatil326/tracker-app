@@ -4,40 +4,36 @@ import axios from 'axios';
 
 //initial state
 const initialState = {
-    transactions: [],
+    transactions: [ ],
     error: null,
     loading: true,  
+
 };
+console.log(initialState.transactions);
 
 //create context
 export const GlobalContext = createContext(initialState);
 
 //provider component
 export const GlobalProvider = ({ children }) => {
-    const [state, dispatch] = useReducer(AppReducer, initialState);
+    const [state, dispatch] = useReducer(AppReducer, initialState,);
 
   //Actions   
-     async function getTransactions (){
-        const config = {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
-        try{
+    async function getTransactions() {
+        try {
             const res = await axios.get('/api/v1/transactions');
-            
-           dispatch({
-               type: "GET_TRANSACTIONS",
-               payload: res.data.data
-           });
-        } catch (err) {
-            dispatch({
-                type: "TRANSACTIONS_ERROR",
-                payload: err.response.data.error
-            });
 
+            dispatch({
+                type: 'GET_TRANSACTIONS',
+                payload: res.data.data
+            })
+        } catch (err){
+            dispatch({
+                type: ' TRANSACTIONS_ERROR',
+                payload: err.response.data.error
+            })
         }
-     }
+    }
      
     async function deleteTransaction(id) {
        try {
@@ -83,7 +79,7 @@ export const GlobalProvider = ({ children }) => {
                 transactions: state.transactions,
                 error: state.error,
                 loading: state.loading,
-                getTransactions,   
+                getTransactions,
                 deleteTransaction,
                 addTransaction,
             }}
